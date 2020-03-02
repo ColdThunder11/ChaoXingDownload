@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         学习通课程资源直链下载
+// @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
 // @version      0.1
-// @description  学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3资源的下载。
+// @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3资源的下载。
 // @author       ColdThunder11
 // @match        https://mooc1-1.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
 // @grant        none
