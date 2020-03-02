@@ -25,7 +25,7 @@
                 var data=frame.getAttribute('data');
                 if(data!=null){
                     var jsondata=JSON.parse(data);
-                    if(jsondata.type==".ppt"||jsondata.type==".ppt"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"){
+                    if(jsondata.type==".ppt"||jsondata.type==".pptx"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"){
                         var downloadTag = document.createElement("A");
                         downloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+jsondata.objectid);
                         downloadTag.setAttribute("class","ct11_dl");
