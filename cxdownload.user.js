@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
-// @version      0.13
+// @version      0.14
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载。
 // @author       ColdThunder11
 // @match        https://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
@@ -31,19 +31,22 @@
                         downloadTag.setAttribute("class","ct11_dl");
                         downloadTag.innerHTML="点此下载 "+jsondata.name;
                         fdiv.appendChild(downloadTag);
+                        console.log(frame);
                         continue;
                     }
                 }
-                if(frame.getAttribute("name")==null) return;
+                if(frame.getAttribute("name")==null) continue;
                 if(frame.getAttribute("name").substr(frame.getAttribute("name").length-4,4)==".mp3"){
                     var adownloadTag = document.createElement("A");
                     adownloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+frame.getAttribute("objectid"));
                     adownloadTag.setAttribute("class","ct11_dl");
                     adownloadTag.innerHTML="点此下载 "+frame.getAttribute("name");
                     fdiv.appendChild(adownloadTag);
+                    continue;
                 }
 
             }
         }
     },3000);
 })();
+
