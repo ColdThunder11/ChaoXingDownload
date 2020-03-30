@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
-// @version      0.15
+// @version      0.20
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载。
 // @author       ColdThunder11
 // @match        http*://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
@@ -15,7 +15,7 @@
     'use strict';
     setInterval(()=>{
         var haveResource=false;
-        var downloadLinks=new Array();
+        var downloadLinks;
         var iframes=document.getElementsByTagName("iframe");
         for(var i=0;i<iframes.length;i++){
             var frames=iframes[i].contentWindow.document.getElementsByTagName("iframe");
@@ -29,7 +29,10 @@
                 if(data!=null){
                     var jsondata=JSON.parse(data);
                     if(jsondata.type==".ppt"||jsondata.type==".pptx"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"||jsondata.type==".avi"){
-                        if(!haveResource) haveResource=true;
+                        if(!haveResource) {
+                            haveResource=true;
+                            downloadLinks=new Array();
+                        }
                         downloadLinks.push("https://d0.ananas.chaoxing.com/download/"+jsondata.objectid)
                         var downloadTag = document.createElement("A");
                         downloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+jsondata.objectid);
@@ -42,7 +45,10 @@
                 }
                 if(frame.getAttribute("name")==null) continue;
                 if(frame.getAttribute("name").substr(frame.getAttribute("name").length-4,4)==".mp3"){
-                    if(!haveResource) haveResource=true;
+                    if(!haveResource) {
+                        haveResource=true;
+                        downloadLinks=new Array();
+                    }
                     downloadLinks.push("https://d0.ananas.chaoxing.com/download/"+frame.getAttribute("objectid"))
                     var adownloadTag = document.createElement("A");
                     adownloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+frame.getAttribute("objectid"));
