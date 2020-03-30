@@ -5,6 +5,7 @@
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载。
 // @author       ColdThunder11
 // @match        https://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
+// @match        http*://*.edu.cn/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
 // @grant        none
 // @supportURL   https://github.com/ColdThunder11/ChaoXingDownload/issues
 // @updateURL    https://github.com/ColdThunder11/ChaoXingDownload/raw/master/cxdownload.user.js
