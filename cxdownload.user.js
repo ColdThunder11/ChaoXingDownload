@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
-// @version      0.21
+// @version      0.22
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载，支持整节课资源批量下载。
 // @author       ColdThunder11
 // @match        *://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
@@ -62,7 +62,7 @@
             }
         }
         if(haveResource){
-            if(iframes[0].parentNode.getElementsByClassName("ct11_dl")[0]!=null) iframes[0].parentNode.getElementsByClassName("ct11_dl")[0].remove
+            if(iframes[0].parentNode.getElementsByClassName("ct11_dl")[0]!=null) iframes[0].parentNode.getElementsByClassName("ct11_dl")[0].remove()
             var allDownloadTag = document.createElement("A");
             allDownloadTag.setAttribute("class","ct11_dl");
             allDownloadTag.setAttribute("style","font-size: 14px;color: #666666;");
