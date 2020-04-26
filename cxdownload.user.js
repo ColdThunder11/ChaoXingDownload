@@ -28,7 +28,7 @@
                 var data=frame.getAttribute('data');
                 if(data!=null){
                     var jsondata=JSON.parse(data);
-                    if(jsondata.type==".ppt"||jsondata.type==".pptx"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"||jsondata.type==".avi"){
+                    if(jsondata.type==".ppt"||jsondata.type==".pptx"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"||jsondata.type==".avi"||jsondata.type==".wmv"){
                         if(!haveResource) {
                             haveResource=true;
                             downloadLinks=new Array();
