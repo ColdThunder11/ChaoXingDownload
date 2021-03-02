@@ -34,7 +34,7 @@
                         if(fileList[i].getAttribute("type")!="afolder"){
                             var objectid=fileList[i].getAttribute("objectid");
                             var downloadTag = document.createElement("A");
-                            downloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+objectid);
+                            downloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+objectid);
                             downloadTag.setAttribute("class","ct11_dl");
                             downloadTag.innerHTML="下载";
                             fileList[i].childNodes[3].childNodes[1].appendChild(downloadTag);
@@ -66,9 +66,9 @@
                                 haveResource=true;
                                 downloadLinks=new Array();
                             }
-                            downloadLinks.push("https://d0.ananas.chaoxing.com/download/"+jsondata.objectid)
+                            downloadLinks.push("https://cs-ans.chaoxing.com/download/"+jsondata.objectid)
                             var downloadTag = document.createElement("A");
-                            downloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+jsondata.objectid);
+                            downloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+jsondata.objectid);
                             downloadTag.setAttribute("class","ct11_dl");
                             downloadTag.setAttribute("style","font-size: 14px;color: #666666;");
                             downloadTag.innerHTML="点此下载 "+jsondata.name;
@@ -82,9 +82,9 @@
                             haveResource=true;
                             downloadLinks=new Array();
                         }
-                        downloadLinks.push("https://d0.ananas.chaoxing.com/download/"+frame.getAttribute("objectid"))
+                        downloadLinks.push("https://cs-ans.chaoxing.com/download/"+frame.getAttribute("objectid"))
                         var adownloadTag = document.createElement("A");
-                        adownloadTag.setAttribute("href","https://d0.ananas.chaoxing.com/download/"+frame.getAttribute("objectid"));
+                        adownloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+frame.getAttribute("objectid"));
                         adownloadTag.setAttribute("class","ct11_dl");
                         adownloadTag.setAttribute("style","font-size: 14px;color: #666666;");
                         adownloadTag.innerHTML="点此下载 "+frame.getAttribute("name");
