@@ -32,10 +32,15 @@
                     try{
                         if(fileList[i].getAttribute("type")!="afolder"){
                             var objectid=fileList[i].getAttribute("objectid");
-                            var downloadTag = document.createElement("A");
-                            downloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+objectid);
+                            var downloadTag = document.createElement("div");
+                            downloadTag.setAttribute("href","javascript:void(0)");
+                            //downloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+objectid);
+                            downloadTag.setAttribute("style","cursor:pointer;");
                             downloadTag.setAttribute("class","ct11_dl");
                             downloadTag.innerHTML="下载";
+                            downloadTag.onclick = function name(params) {
+                                window.location = "https://cs-ans.chaoxing.com/download/"+objectid;
+                            }
                             fileList[i].childNodes[3].childNodes[1].appendChild(downloadTag);
                         }
                     }
