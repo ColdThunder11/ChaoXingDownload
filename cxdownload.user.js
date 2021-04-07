@@ -31,7 +31,7 @@
                 for(var i=0;i<fileList.length;i++){
                     try{
                         if(fileList[i].getAttribute("type")!="afolder"){
-                            var objectid=fileList[i].getAttribute("objectid");
+                            let objectid=fileList[i].getAttribute("objectid");
                             var downloadTag = document.createElement("div");
                             downloadTag.setAttribute("href","javascript:void(0)");
                             //downloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+objectid);
@@ -64,7 +64,7 @@
                     if(iframes[i].contentWindow.document.getElementsByClassName("ct11_dl")[j]!=null) return;
                     var data=frame.getAttribute('data');
                     if(data!=null){
-                        var jsondata=JSON.parse(data);
+                        let jsondata=JSON.parse(data);
                         if(jsondata.type==".ppt"||jsondata.type==".pptx"||jsondata.type==".mp4"||jsondata.type==".pdf"||jsondata.type==".flv"||jsondata.type==".doc"||jsondata.type==".docx"||jsondata.type==".avi"||jsondata.type==".wmv"||jsondata.type==".mpg"||jsondata.type==".mpeg"){
                             if(!haveResource) {
                                 haveResource=true;
@@ -91,6 +91,7 @@
                             downloadLinks=new Array();
                         }
                         downloadLinks.push("https://cs-ans.chaoxing.com/download/"+frame.getAttribute("objectid"))
+                        let objectId = frame.getAttribute("objectid");
                         var adownloadTag = document.createElement("div");
                         adownloadTag.setAttribute("href","javascript:void(0)");
                         //adownloadTag.setAttribute("href","https://cs-ans.chaoxing.com/download/"+frame.getAttribute("objectid"));
@@ -98,7 +99,7 @@
                         adownloadTag.setAttribute("style","font-size: 14px;color: #666666;cursor:pointer;");
                         adownloadTag.innerHTML="点此下载 "+frame.getAttribute("name");
                         adownloadTag.onclick = function name(params) {
-                            window.location = "https://cs-ans.chaoxing.com/download/"+frame.getAttribute("objectid");
+                            window.location = "https://cs-ans.chaoxing.com/download/"+ objectId;
                         }
                         continue;
                     }
