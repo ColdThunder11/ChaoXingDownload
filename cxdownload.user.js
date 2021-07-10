@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
-// @version      0.31
+// @version      0.32
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载，支持整节课资源批量下载。
 // @author       ColdThunder11
 // @match        *://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
@@ -38,7 +38,9 @@
                             downloadTag.setAttribute("class","ct11_dl");
                             downloadTag.innerHTML="下载";
                             downloadTag.onclick = function name(params) {
-                                window.location = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f"+objectid;
+                                let download_link = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63"
+                                download_link += "\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f" +objectid;
+                                window.location = download_link
                             }
                             eval("\x66\x69\x6c\x65\x4c\x69\x73\x74\x5b\x69\x5d\x2e\x63\x68\x69\x6c\x64\x4e\x6f\x64\x65\x73\x5b\x33\x5d\x2e\x63\x68\x69\x6c\x64\x4e\x6f\x64\x65\x73\x5b\x31\x5d\x2e\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64\x28\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x54\x61\x67\x29");
                         }
@@ -76,7 +78,9 @@
                             downloadTag.setAttribute("style","font-size: 14px;color: #666666;cursor:pointer;");
                             downloadTag.innerHTML="点此下载 "+jsondata.name;
                             downloadTag.onclick = function name(params) {
-                                window.location = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f"+jsondata.objectid;
+                                let download_link = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63"
+                                download_link += "\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f" +jsondata.objectid;
+                                window.location = download_link
                             }
                             eval("\x66\x64\x69\x76\x2e\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64\x28\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x54\x61\x67\x29");
                             continue;
@@ -96,7 +100,9 @@
                         adownloadTag.setAttribute("style","font-size: 14px;color: #666666;cursor:pointer;");
                         adownloadTag.innerHTML="点此下载 "+frame.getAttribute("name");
                         adownloadTag.onclick = function name(params) {
-                            window.location = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f"+ objectId;
+                            let download_link = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63"
+                            download_link += "\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f" +objectId;
+                            window.location = download_link
                         }
                         continue;
                     }
