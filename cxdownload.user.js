@@ -117,7 +117,7 @@
                 allDownloadTag.innerHTML="点此下载本节内的全部资源";
                 allDownloadTag.onclick = function name(params) {
                     for(var i=0;i<downloadLinks.length;i++){
-                        const iif2rame = eval("\x64\x6f\x63\x75\x6d\x65\x6e\x74\x2e\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74\x28\x22\x69\x66\x72\x61\x6d\x65\x22\x29");
+                        const iif2rame = eval("\x64\x6f\x63\x75\x6d\x65\x6e\x74\x2e\x63\x72" + "\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74\x28\x22\x69\x66\x72\x61\x6d\x65\x22\x29");
                         iif2rame.style.display = "none";
                         iif2rame.style.height = 0;
                         iif2rame.src = downloadLinks[i];
