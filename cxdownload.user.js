@@ -28,10 +28,10 @@
     if(unsafeWindow.top.location.href != unsafeWindow.location.href){ //Only run xhr hook in iframe
         var myOpen = unsafeWindow.XMLHttpRequest.prototype.open;
         unsafeWindow.XMLHttpRequest.prototype.open = function () {
-            console.log(arguments)
+            //console.log(arguments)
             this.addEventListener("load",()=>{
                 if(this.responseText.includes("d0.ananas.chaoxing.com/download/") ){
-                    console.log(this.responseText);
+                    //console.log(this.responseText);
                     let jsondata = JSON.parse(this.responseText);
                     if(unsafeWindow.top.decdata != null){
                         unsafeWindow.top.decdata[jsondata.objectid] = jsondata.download
