@@ -128,7 +128,7 @@
                                         window.location = download_link
                                     }
                                     catch{
-                                        alert("资源解析式失败")
+                                        alert("资源解析失败")
                                     }
                                 }
                                 eval("\x66\x64\x69\x76\x2e\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64\x28\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x54\x61\x67\x29");
