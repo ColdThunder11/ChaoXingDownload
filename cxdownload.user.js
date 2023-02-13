@@ -1,22 +1,18 @@
 // ==UserScript==
 // @name         超星学习通课程资源直链下载
 // @namespace    https://github.com/ColdThunder11/ChaoXingDownload
-// @version      0.36
+// @version      0.37
 // @description  超星学习通课程资源直链下载，支持ppt(x),doc(x),pdf,mp4,flv,mp3,avi资源的下载，支持整节课资源批量下载。
 // @author       ColdThunder11
 // @match        *://*.chaoxing.com/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
-// @match        *://*.chaoxing.com/coursedata?classId=*&courseId=*&type=*&ut=*&enc=*&cpi=*&openc=*
-// @match        *://*.chaoxing.com/coursedata?courseId=*&classId=*&type=*&enc=*&ut=*&openc=*
-// @match        *://*.chaoxing.com/coursedata/search?dataName=*&courseId=*&classId=*&ut=*&cpi=*&openc=*
-// @match        *://*.chaoxing.com/coursedata?courseId=*&classId=*&type=*&ut=*&enc=*&cpi=*&openc=*
-// @match        *://*.chaoxing.com/coursedata?courseId=*&dataName=*&dataId=*&type=*&parent=*&flag=*&classId=*&enc*&ut=*&cpi=*&openc=*
+// @match        *://*.chaoxing.com/coursedata?classId=*
+// @match        *://*.chaoxing.com/coursedata?courseId=*
+// @match        *://*.chaoxing.com/coursedata/search?dataName=*&courseId=*
 // @match        *://*.chaoxing.com/ananas/modules/pdf/index.html*
 // @match        *://*.edu.cn/mycourse/studentstudy?chapterId=*&courseId=*&clazzid=*&enc=*
-// @match        *://*.edu.cn/coursedata?classId=*&courseId=*&type=*&ut=*&enc=*&cpi=*&openc=*
-// @match        *://*.edu.cn/coursedata?courseId=*&classId=*&type=*&enc=*&ut=*&openc=*
-// @match        *://*.edu.cn/coursedata/search?dataName=*&courseId=*&classId=*&ut=*&cpi=*&openc=*
-// @match        *://*.edu.cn/coursedata?courseId=*&classId=*&type=*&ut=*&enc=*&cpi=*&openc=*
-// @match        *://*.edu.cn/coursedata?courseId=*&dataName=*&dataId=*&type=*&parent=*&flag=*&classId=*&enc*&ut=*&cpi=*&openc=*
+// @match        *://*.edu.cn/coursedata?classId=*
+// @match        *://*.edu.cn/coursedata?courseId=*
+// @match        *://*.edu.cn/coursedata/search?dataName=*&courseId=*
 // @match        *://*.edu.cn/ananas/modules/pdf/index.html*
 // @run-at       document-start
 // @grant        unsafeWindow
@@ -60,9 +56,18 @@
         setTimeout(() => {
             if (document.getElementsByClassName("ct11_dl")[0] == null) {
                 var fileList = document.getElementsByClassName("ZYCon")[0].childNodes[1].childNodes[3].childNodes;
+                let getQueryStringFunc = (name)=> {
+                    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                    let r = window.location.search.substr(1).match(reg);
+                    if (r != null) {
+                        return decodeURIComponent(r[2]);
+                    };
+                    return null;
+                }
                 for (var i = 0; i < fileList.length; i++) {
                     try {
                         if (fileList[i].getAttribute("type") != "afolder") {
+                            let itemId = fileList[i].getAttribute("id");
                             let objectid = fileList[i].getAttribute("objectid");
                             var downloadTag = eval("\x64\x6f\x63\x75\x6d\x65\x6e\x74\x2e\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74\x28\x22\x64\x69\x76\x22\x29");
                             downloadTag.setAttribute("href", "javascript:void(0)");
@@ -70,8 +75,9 @@
                             downloadTag.setAttribute("class", "ct11_dl");
                             downloadTag.innerHTML = "下载";
                             downloadTag.onclick = function name(params) {
-                                let download_link = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63"
-                                download_link += "\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f" + objectid;
+                                //let download_link = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x63\x73\x2d\x61\x6e\x73\x2e\x63"
+                                //download_link += "\x68\x61\x6f\x78\x69\x6e\x67\x2e\x63\x6f\x6d\x2f\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x2f" + objectid;
+                                let download_link = "/coursedata/downloadData?dataId=" + itemId + "&classId=" + getQueryStringFunc("classId") + "&cpi=" + getQueryStringFunc("cpi") + "&courseId=" + getQueryStringFunc("courseId") + "&ut=s"
                                 window.location = download_link
                             }
                             eval("\x66\x69\x6c\x65\x4c\x69\x73\x74\x5b\x69\x5d\x2e\x63\x68\x69\x6c\x64\x4e\x6f\x64\x65\x73\x5b\x33\x5d\x2e\x63\x68\x69\x6c\x64\x4e\x6f\x64\x65\x73\x5b\x31\x5d\x2e\x61\x70\x70\x65\x6e\x64\x43\x68\x69\x6c\x64\x28\x64\x6f\x77\x6e\x6c\x6f\x61\x64\x54\x61\x67\x29");
